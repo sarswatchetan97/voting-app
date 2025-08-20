@@ -4,41 +4,41 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: true
   },
   age: {
     type: Number,
-    required: true,
+    required: true
   },
   email: {
-    type: String,
+    type: String
   },
   mobile: {
-    type: String,
+    type: String
   },
   address: {
     type: String,
-    required: true,
+    required: true
   },
   aadharNumber: {
     type: Number,
     required: true,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
   role: {
     type: String,
     enum: ["voter", "admin"],
-    default: "voter",
+    default: "voter"
   },
   isVoted: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 });
 
-const User = mongoose.Model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User;
