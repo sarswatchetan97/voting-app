@@ -20,4 +20,25 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+router.post('/login', async (req, res) => {
+  try {
+    //Extract aadharNumber and password from req body
+    const {aadharNumber, password} = req.body;
+
+    //Find the user by aadharNumber
+    const user = await User.findOne({aadharNumber: aadharNumber});
+
+    //If user does not exist or password does not match return error
+    if(!user || !(user.password === password)) {
+      return res.status(401).json({error: 'Invalid username or password'});
+    }
+
+    res.status(200).json({user});
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({error: "Internal Server Error"});
+  }
+})
+
 module.exports = router;
