@@ -18,4 +18,18 @@ This is a backend application for a voting system where users can vote for candi
 **Installation**
 
 1. Clone the repository:
-     
+
+     git clone https://github.com/sarswatchetan97/voting-app.git
+
+
+**API Endpoints**
+
+**SignUp**
+     POST /user/signup: Sign up a user
+
+**Login**
+     POST /user/login: Login a user
+
+**User Profile**
+**GET Profile**
+     GET /user/profile: get user profile information
