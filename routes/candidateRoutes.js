@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const User = require("./../models/user");
-const {jwtAuthMiddleware,generateToken} = require('./../jwt');
+const User = require("../models/candidate");
+const {jwtAuthMiddleware,generateToken} = require('../jwt');
 
 //POST route to add a person
 router.post("/signup", async (req, res) => {
@@ -12,7 +12,7 @@ router.post("/signup", async (req, res) => {
     const newUser = new User(data);
 
     const response = await newUser.save();
-    console.log("data saved");
+    console.log("data saved"); 
 
     const payload = {
       id: response.id,
